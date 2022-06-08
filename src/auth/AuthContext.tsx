@@ -6,9 +6,9 @@ export const AuthContext = createContext<null | {
     userToken: null | string,
     setAuthToken: (token: string) => unknown,
     logout: () => unknown
-}>(null)
+        }>(null)
 
-const USER_TOKEN_KEY = 'user_token'
+export const USER_TOKEN_KEY = 'user_token'
 
 export const AuthContextProvider = (props: { children: ReactNode }) => {
     const [ userToken, setAuthToken ] = useState<string | null>(null)
@@ -29,7 +29,7 @@ export const AuthContextProvider = (props: { children: ReactNode }) => {
             UserAPI.initApiToken(userToken, handleLogout)
             setInitialised(true)
         }
-    }, [userToken])
+    }, [userToken, handleLogout])
 
     // onMount
     useEffect(() => {
@@ -45,7 +45,7 @@ export const AuthContextProvider = (props: { children: ReactNode }) => {
         userToken,
         setAuthToken: persistToken,
         logout: handleLogout
-    }), [userToken]);
+    }), [userToken, persistToken, handleLogout]);
 
     if ( !isContextInitialised ) {
         // global loading indicator
