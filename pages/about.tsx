@@ -1,9 +1,17 @@
-import Button from '@mui/material/Button'
+import type { NextPage } from 'next'
+import React from 'react'
+import { MyFooter } from '.'
+import { AuthGuard } from '../src/user/AuthGuard'
 
-export default function AboutPage () {
+const About: NextPage = () => {
     return (
-        <div>
-            <Button variant="contained">Hello</Button>
-        </div>
+        <AuthGuard>
+            <div>
+                <h1>About this offce hour</h1>
+                <MyFooter companyName='Coca Cola' />
+            </div>
+        </AuthGuard>
     )
 }
+
+export default About
