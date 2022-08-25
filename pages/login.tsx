@@ -1,10 +1,13 @@
-import { LoginFormContainer } from "../src/auth/LoginFormContainer";
-import { NonAuthGuard } from "../src/auth/NonAuthGuard";
+import { LoginFormContainer } from "../src/user/LoginFormContainer"
+import { NonAuthGuard } from "../src/user/NonAuthGraud"
 
-export default function Login () {
+const LoginPage = () => {
+ 
     return (
         <NonAuthGuard>
             <LoginFormContainer />
         </NonAuthGuard>
     )
 }
+
+export default LoginPage
