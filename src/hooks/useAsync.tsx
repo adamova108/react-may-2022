@@ -20,6 +20,7 @@ export const useAsync = <T, P, E = string>(asyncOperation: (params: P) => Promis
             setStatus(AsyncState.SUCCESS)
             setData(response)
 
+            return response
             // errors handled here should be simple text messages
             // anything more complicated should be handled in other layers
         } catch (err: any) {
